@@ -1,0 +1,60 @@
+.app-expanding-textarea {
+  position: relative;
+  margin: 30px 0 56px;
+
+  div {
+    max-width: 100%;
+    width: 100%;
+    min-height: 128px;
+    height: auto;
+    border: 1px solid $black;
+    border-radius: 4px;
+    padding: 16px;
+    outline: none;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    color: $black;
+    caret-color: $primary;
+    background: #fff;
+
+    &:focus {
+      border-color: $primary;
+    }
+
+    &:empty:before {
+      content:attr(placeholder);
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 23px;
+      letter-spacing: 0.03em;
+      color: $black;
+    }
+  }
+
+  &--disabled div {
+    border-color: $black40;
+  }
+
+  &__send-comment {
+    width: 24px;
+    height: 18px;
+
+    position: absolute;
+    bottom: 24px;
+    right: 16px;
+
+    cursor: pointer;
+
+    svg path {
+      fill: $black40;
+    }
+
+    &--colored {
+      svg path {
+        fill: $primary;
+      }
+    }
+  }
+}

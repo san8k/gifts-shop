@@ -1,0 +1,91 @@
+.app-text {
+  position: relative;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__error {
+    margin-top: 7px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: $error;
+  }
+
+  &__input {
+    height: 50px;
+    padding: 12px 12px 0 12px;
+    border: 1px solid $black40;
+    border-radius: 4px;
+
+    font-size: 16px;
+    color: $black;
+    transition: border .25s cubic-bezier(.0, .0, .2, 1), box-shadow .25s cubic-bezier(.0, .0, .2, 1);
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+    }
+
+    &-fullwidth {
+      width: 100%;
+    }
+
+    &-error {
+      border-color: $error;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    cursor: text;
+
+    overflow: hidden;
+
+    height: 26px;
+    line-height: 26px;
+    font-size: 16px;
+    color: $black40;
+
+    transition: all 0.1s linear;
+
+    &-active {
+      height: 16px;
+      line-height: 16px;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+
+      top: 3px;
+    }
+
+    &-error {
+      color: $error;
+    }
+  }
+
+  &__show-password {
+    display: flex;
+    width: 24px;
+    height: 24px;
+
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 12px;
+
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+
+    svg path {
+      fill: $black40;
+    }
+
+    &--colored {
+      svg path {
+        fill: $primary;
+      }
+    }
+  }
+}

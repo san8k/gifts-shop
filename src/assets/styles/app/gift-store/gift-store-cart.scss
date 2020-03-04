@@ -1,0 +1,147 @@
+.gift-store-cart {
+  padding-bottom: 60px;
+
+  &__outer {
+    padding-top: 58px;
+  }
+
+  &__total {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.gift-store-cart-total {
+  &__content {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $black;
+    margin-right: 36px;
+  }
+
+  &__count {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $black;
+    width: 102px;
+    text-align: center;
+    margin-right: 24px;
+
+    @media (min-width: 1366px) {
+      margin-right: 34px;
+    }
+
+    @media (min-width: 1600px) {
+      margin-right: 60px;
+    }
+
+    @media (min-width: 1920px) {
+      margin-right: 95px;
+    }
+  }
+
+  &__point {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $primary;
+    width: 17.044%;
+    margin-right: 11.2%;
+
+    @media (min-width: 1600px) {
+      margin-right: 11.5%;
+    }
+
+    @media (min-width: 1920px) {
+      margin-right: 11.7%;
+    }
+  }
+
+  &__btn {
+    margin-top: 40px;
+    width: 248px;
+    margin-left: auto;
+    margin-right: 51px;
+
+    @media (min-width: 1366px) {
+      margin-right: 72px;
+    }
+
+    @media (min-width: 1600px) {
+      margin-right: 131px;
+    }
+
+    @media (min-width: 1920px) {
+      margin-right: 212px;
+    }
+  }
+}
+
+.gift-store-cart-total-btn {
+  &__disable {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: $black40;
+    background: $primary;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+.gift-store-empty-cart {
+  &__img {
+    text-align: center;
+    margin-top: 125px;
+
+    svg {
+      .path-1 {
+        fill: $primary;
+      }
+
+      .path-2 {
+        fill: $black;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: $black;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  &__subtext {
+    max-width: 372px;
+    margin: 16px auto 0;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: $black;
+  }
+
+  &__btn {
+    margin-top: 40px;
+    text-align: center;
+
+    a {
+      width: 344px;
+    }
+  }
+}

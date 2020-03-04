@@ -1,0 +1,78 @@
+.app-button {
+  position: relative;
+
+  button, a {
+    display: block;
+    position: relative;
+    user-select: none;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    background: $primary;
+    box-shadow: 0 4px 16px $black10;
+    border: 0;
+    border-radius: 6px;
+    padding: 0 24px;
+    height: 48px;
+    line-height: 48px;
+
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: $black;
+
+    &:hover {
+      box-shadow: 0 4px 16px $black10;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: 0 4px 16px $black10;
+      opacity: .8;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $black40;
+      background: $primary;
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+
+    &.loading {
+      background: $primary;
+      pointer-events: none;
+      color: transparent;
+
+      &:after {
+        @extend %loader;
+
+        position: absolute;
+        left: calc(50% - (1.5em / 2));
+        top: calc(50% - (1.5em / 2));
+
+        width: 1.5em;
+        height: 1.5em;
+
+        border-color: #fff;
+        border-right-color: transparent;
+        border-top-color: transparent;
+      }
+    }
+
+    &.fullwidth {
+      width: 100%;
+    }
+
+    &.fit {
+      width: fit-content;
+    }
+  }
+}

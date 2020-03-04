@@ -1,0 +1,576 @@
+.app-player {
+  position: relative;
+  width: 100%;
+  box-shadow: 0 4px 16px $black10;
+
+  &__video--container {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 48px);
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: $trueBlack;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    video {
+
+    }
+  }
+
+  &__thumbnail--overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+  }
+
+  &__controls {
+
+  }
+
+  &__segment {
+
+  }
+}
+
+.app-player-thumbnail-overlay {
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    text-align: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    line-height: inherit;
+
+    cursor: pointer;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 128px;
+    height: 128px;
+    margin-left: -64px;
+    margin-top: -64px;
+
+    opacity: 1;
+
+    transition: opacity .25s cubic-bezier(.0, .0, .2, 1);
+
+    &:hover {
+      opacity: .75;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    i {
+      display: block;
+
+      width: inherit;
+      height: inherit;
+
+      background: $primary;
+      border-radius: 50%;
+
+      &:after {
+        content: '';
+        display: block;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -16px;
+        margin-top: -25px;
+
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 25px 0 25px 43.3px;
+        border-color: transparent transparent transparent #fff;
+      }
+    }
+  }
+}
+
+.app-player-controls {
+  position: absolute;
+  width: 100%;
+  height: 48px;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+
+  display: -ms-grid; // ie fix
+  display: grid;
+
+  -ms-grid-columns: 20% 60% 20%; // ie fix
+  grid-template-columns: max-content auto max-content;
+
+  background: #fff;
+  padding: 0 16px;
+
+  &__play {
+    -ms-grid-column: 1; // ie fix
+    height: 48px; // ie fix
+  }
+
+  &__progress--bar {
+    -ms-grid-column: 2; // ie fix
+    height: 48px; // ie fix
+  }
+
+  &__settings {
+    -ms-grid-column: 3; // ie fix
+    height: 48px; // ie fix
+  }
+}
+
+/**
+IE 9 и выше!!!
+ФИКСЫ ТУТ
+ */
+@media screen and (min-width:0\0) and (min-resolution: +72dpi) {
+  .app-player-controls-progress--bar input {
+    top: 8px !important;
+    z-index: 21;
+  }
+
+
+  .app-player-controls-settings {
+    justify-content: flex-end;
+  }
+}
+
+
+.app-player-controls-progress--bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+
+  @include inputTypeRange(transparent);
+  input {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    margin-top: -7px !important;
+    width: calc(100% - 36px) !important;
+  }
+
+  &__outer {
+    @include actionLink;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 2px;
+    background: $black20;
+
+    &:hover {
+      .app-player-controls-progress--bar__current {
+      }
+    }
+  }
+
+  &__buffer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: inherit;
+    background: $black40;
+    z-index: 5;
+  }
+
+  &__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: inherit;
+    background: $primary;
+    z-index: 10;
+  }
+
+  &__interactive {
+    position: absolute;
+    top: -4px;
+    width: 2px;
+    height: 10px;
+    background: $black;
+    z-index: 4;
+  }
+}
+
+@-moz-document url-prefix() {
+  .app-player-controls-progress--bar {
+    input {
+      margin-top: -9px !important;
+    }
+  }
+}
+
+.app-player-controls-play {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    @include actionLink;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 24px;
+
+    margin-right: 12px;
+
+    svg {
+      path {
+        fill: $black40;
+      }
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  &__current {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: $black40;
+    position: relative;
+
+    span {
+      &.active {
+        color: $black;
+      }
+    }
+  }
+}
+
+.app-player-controls-play-volume {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+
+  &__outer {
+    width: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+
+    background: #fff;
+  }
+
+  &__icon {
+    @include actionLink;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+
+    margin-right: 12px;
+
+    svg {
+      path {
+        fill: $black40;
+      }
+    }
+  }
+
+  &__lines {
+    display: none;
+    align-items: flex-end;
+  }
+
+  &__line {
+    @include actionLink;
+
+    display: block;
+    width: 4px;
+    background: $black20;
+    margin: 0 1px;
+
+    &:nth-child(1) { height: 2px; }
+    &:nth-child(2) { height: 4px; }
+    &:nth-child(3) { height: 7px; }
+    &:nth-child(4) { height: 10px; }
+    &:nth-child(5) { height: 13px; }
+
+    &:hover, &.active {
+      background: $primary;
+    }
+  }
+
+  &:hover {
+    .app-player-controls-play-volume__outer {
+      width: 80px;
+      background: #fff;
+      z-index: 1;
+    }
+
+    .app-player-controls-play-volume__icon {
+      svg {
+        path {
+          fill: $primary;
+        }
+      }
+    }
+
+    .app-player-controls-play-volume__lines {
+      display: flex;
+    }
+  }
+}
+
+.app-player-controls-settings {
+  display: flex;
+  align-items: center;
+
+  &__total--duration {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: $black40;
+
+    margin-right: 12px;
+  }
+
+  &__settings {
+    @include actionLink;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+
+    margin-right: 12px;
+
+    svg {
+      path, circle {
+        stroke: $black40;
+      }
+    }
+
+    &:hover {
+      svg {
+        path, circle {
+          stroke: $primary;
+        }
+      }
+    }
+  }
+
+  &__quality {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: $black40;
+
+    margin-right: 12px;
+
+    span {
+      @include actionLink;
+
+      &:hover {
+        color: $primary;
+      }
+
+      &.active {
+        color: $black;
+      }
+    }
+  }
+
+  &__fullscreen {
+    @include actionLink;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 24px;
+
+    svg {
+      transition: all .05s;
+
+      path {
+        fill: $black40;
+      }
+    }
+
+    &:hover {
+      svg {
+        transform: scale(1.2);
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+}
+
+
+.app-player-segment {
+  position: absolute;
+  bottom: 64px;
+  right: 16px;
+  z-index: 30;
+
+  width: 176px;
+  background: #fff;
+  box-shadow: 0 4px 16px $black10;
+  border-radius: 4px;
+
+  &__item {
+    @include actionLink;
+
+    padding: 14px 16px;
+    border-bottom: 1px solid $black10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    span {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.25px;
+      color: $black;
+
+      &:last-child {
+        color: $black40;
+      }
+    }
+
+    &:hover {
+      span {
+        &:first-child {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  &-deep {
+    width: 120px;
+
+    .app-player-segment__item {
+      justify-content: flex-end;
+
+      span {
+        position: relative;
+        color: $black;
+
+        i {
+          display: none;
+          position: absolute;
+          top: 50%;
+          margin-top: -10px;
+          left: -28px;
+
+          svg {
+            path {
+              fill: $black;
+            }
+          }
+        }
+
+        &.active {
+          i {
+            display: inline;
+          }
+        }
+      }
+
+      &-back {
+        justify-content: center;
+
+        span {
+          color: $black40;
+
+          i {
+            display: inline;
+            left: -18px;
+            margin-top: -8px;
+
+            svg {
+              path {
+                fill: $black40;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          svg {
+            path {
+              fill: $primary;
+            }
+          }
+        }
+      }
+
+      &-stronged {
+        span {
+          display: inline-block;
+          width: 40px;
+        }
+      }
+    }
+  }
+}
+
+:-webkit-full-screen.app-player {
+  position: static;
+}
+
+:-moz-full-screen.app-player {
+  position: static;
+}
+
+:-ms-fullscreen.app-player {
+  position: static;
+
+  .app-player-controls {
+    bottom: 48px;
+  }
+}
+
+:fullscreen.app-player {
+  position: static;
+}

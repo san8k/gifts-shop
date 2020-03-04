@@ -1,0 +1,118 @@
+.app-notification {
+  position: fixed;
+  z-index: 999;
+  top: 40px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 536px;
+  // max-width: 96%; // я не понял за чем этот стиль был написан, закомментировал чтобы стало по макету
+  color: #fff;
+
+  &__buttons {
+    position: relative;
+    left: 60px;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0.02em;
+      margin-right: 24px;
+      margin-top: 14px;
+      transition-duration: .3s;
+      color: $black;
+
+      &:hover {
+        color: $primary;
+        transition-duration: .3s;
+      }
+    }
+  }
+
+
+
+  &__item {
+    position: relative;
+    background: $black;
+    border-radius: 4px;
+    padding: 24px 60px 24px 24px;
+    width: 536px;
+    max-width: 96%;
+    margin-top: 15px;
+    box-sizing: border-box;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &.is-big {
+      .app-notification__icon-close {
+        top: 22px;
+        transform: none;
+      }
+
+      .app-notification__button {
+        margin-right: -30px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: (22 / 14);
+    letter-spacing: 0.01em;
+    margin: 0 0 22px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: (22 / 14);
+    letter-spacing: 0.01em;
+    color: $black60;
+  }
+
+  &__button {
+    padding: 26px 0 0;
+    font-size: 16px;
+    line-height: (20 / 16);
+    letter-spacing: 0.02em;
+    text-align: right;
+
+    span {
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+
+  &__icon-close {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    transform: translate(0, -50%);
+    cursor: pointer;
+
+    &:hover {
+      svg path {
+        fill: $primary;
+      }
+    }
+  }
+}
+
+.slide-fade-enter-active {
+  transition: all .25s linear;
+}
+
+.slide-fade-leave-active {
+  transition: all .15s linear;
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateY(-100px);
+  opacity: 0;
+}

@@ -1,0 +1,310 @@
+.gift-store-header {
+  padding: 0 0 24px 0;
+  background: #fff;
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    padding: 24px 0 24px;
+  }
+
+  h1 {
+    width: 53.3vw;
+    line-height: 36px;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    color: $black;
+    text-align: center;
+    padding-top: 20px;
+
+    @media (min-width: 768px) {
+      padding-top: 0;
+    }
+
+    @media (min-width: 1024px) {
+      text-align: left;
+      margin-bottom: 24px;
+      padding-top: 0;
+    }
+
+    span {
+      margin-left: 20px;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+      color: $black40;
+      text-transform: lowercase;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: $black;
+    margin-bottom: 22px;
+
+    &--no-sort-block {
+      margin-bottom: -6px;
+    }
+  }
+
+  &__info-points--count {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: $white;
+    background: $primary;
+    border-radius: 10px;
+    padding: 0 8px;
+  }
+
+  &__info-buttons {
+    a {
+      position: relative;
+      cursor: pointer;
+      color: $black;
+
+      &:hover {
+        color: $primary;
+      }
+
+      svg {
+        margin-right: 12px;
+        transform: translate3d(0, 5px, 0);
+      }
+
+      i {
+        display: block;
+        position: absolute;
+        top: -8px;
+        left: 18px;
+        min-width: 20px;
+        min-height: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.04em;
+        color: $black;
+        background: $info;
+        border-radius: 50%;
+        text-align: center;
+      }
+    }
+
+    a:first-child {
+      margin-right: 55px;
+    }
+  }
+
+  &__info-buttons-link {
+    position: relative;
+    cursor: pointer;
+    color: $black;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary;
+    }
+
+    svg {
+      margin-right: 12px;
+      transform: translate3d(0, 5px, 0);
+
+      path {
+        fill: $black;
+      }
+    }
+
+    i {
+      display: block;
+      position: absolute;
+      top: -8px;
+      left: 18px;
+      min-width: 20px;
+      min-height: 20px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0.04em;
+      color: $black;
+      background: $info;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    &:first-child {
+      margin-right: 55px;
+    }
+  }
+
+  &__search-block {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__search-block-link {
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: $black;
+    transition-duration: .3s;
+
+    svg {
+      transform: translate3d(0, 2px, 0);
+      margin-right: 10px;
+      transition-duration: .3s;
+    }
+
+    &:hover {
+      color: $primary;
+      transition-duration: .3s;
+
+      svg path {
+        fill: $primary;
+        transition-duration: .3s;
+      }
+
+      svg circle {
+        stroke: $primary;
+        transition-duration: .3s;
+      }
+    }
+  }
+
+  &__sort-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 12px;
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  &__sort-link {
+    text-decoration: none;
+    color: $black;
+
+    &:hover {
+      color: $primary;
+
+      .gift-store-header__sort-icon {
+        & path {
+          fill: $primary;
+        }
+      }
+    }
+
+    &:visited:not(:hover) {
+      color: $black;
+    }
+  }
+
+  &__sort-link--active {
+    color: $primary;
+
+    &:visited:not(:hover) {
+      color: $primary;
+    }
+
+    .gift-store-header__sort-icon {
+      & path {
+        fill: $primary;
+      }
+    }
+  }
+
+  &__sort-icon {
+    margin-right: 11px;
+    vertical-align: -30%;
+
+    path {
+      fill: $black;
+    }
+  }
+
+  &__chosen-sort-method {
+    margin-left: 25px;
+    margin-top: 0;
+    color: $black;
+    padding-top: 4px;
+  }
+
+  &__points-count {
+
+  }
+
+  .sort-methods-popup {
+    position: absolute;
+    top: 102px;
+    left: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 374px;
+    height: 196px;
+    text-decoration: none;
+    color: $black;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px $black10;
+    background: #fff;
+    z-index: 20;
+
+    &__methods-list {
+      padding: 16px 0 0 40px;
+    }
+
+    &__methods-item {
+      position: relative;
+      margin-bottom: 16px;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+
+      svg {
+        position: absolute;
+        top: 20%;
+        left: -26px;
+
+        path {
+          fill: $black;
+        }
+      }
+
+      a {
+        color: $black;
+        text-decoration: none;
+
+        &:visited {
+          color: $black;
+        }
+
+        &:hover {
+          color: $primary;
+        } 
+      }
+    }
+
+    &__methods-item--active {
+      img {
+        visibility: visible;
+      }
+
+      a {
+        color: $black;
+        cursor: default;
+
+        &:visited {
+          color: $black;
+        }
+      }
+    }
+  }
+}

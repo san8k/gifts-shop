@@ -1,0 +1,23 @@
+.info-not-loaded {
+    text-align: center;
+    padding-top: 120px;
+
+    &__image {
+      margin-bottom: 25px;
+      pointer-events: none;
+    }
+
+    &__title {
+      line-height: 30px;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+      color: $trueBlack;
+      margin-bottom: 40px;
+    }
+
+    &__button {
+        width: 337px;
+        height: 48px;
+        border-radius: 6px;
+    }
+  }

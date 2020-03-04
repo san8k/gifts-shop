@@ -1,0 +1,122 @@
+.app-checkbox {
+  position: relative;
+  display: inline-block;
+
+  input[type='checkbox'] {
+    display: none;
+
+    &:checked {
+      ~ label {
+        i {
+          border-color: $primary;
+          background: $primary;
+
+          svg {
+            visibility: visible;
+          }
+        }
+
+        &:hover {
+          i {
+            box-shadow: 0 4px 16px $black10;
+          }
+        }
+      }
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 24px;
+      height: 24px;
+
+      background: #fff;
+      border: 1px solid $black;
+      border-radius: 4px;
+      margin-right: 8px;
+      text-align: center;
+
+      svg {
+        visibility: hidden;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      letter-spacing: 0.03em;
+    }
+
+    &:hover {
+      i {
+        border-color: $primary;
+      }
+    }
+  }
+
+  &__test {
+
+    label {
+      i {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &--has-error {
+    label {
+      i {
+        border-color: $error !important;
+        background: $error !important;
+
+        &:before {
+          background: $error !important;
+        }
+      }
+    }
+
+    span {
+      color: $error;
+    }
+  }
+
+  &--has-success {
+    label {
+      i {
+        border-color: $success !important;
+        background: $success !important;
+
+        &:before {
+          background: $success !important;
+        }
+      }
+    }
+
+    span {
+      color: $success;
+    }
+
+    input[type='checkbox'] {
+      &:not(:checked) {
+        ~ label {
+          i {
+            background: #fff !important;
+          }
+        }
+      }
+    }
+  }
+}

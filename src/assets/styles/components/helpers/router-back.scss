@@ -1,0 +1,35 @@
+.app-router-back {
+  display: none;
+}
+
+@media screen and (min-width: 1088px) {
+  .app-router-back {
+    @include actionLink;
+
+    position: fixed;
+    top: 29px;
+    left: 81px;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    svg {
+      path {
+        fill: $black;
+      }
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+}

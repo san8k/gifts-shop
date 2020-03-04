@@ -1,0 +1,62 @@
+.gift-store-history-list {
+  border: 1px solid $black10;
+  background: #fff;
+  border-radius: 20px;
+
+  &__item {
+    padding: 23px 36px 12px 24px;
+    border-bottom: 1px solid $black10;
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &--new {
+      &:after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 10px;
+        right: 10px;
+        border-radius: 50%;
+        background: $info;
+      }
+    }
+  }
+
+  &__name {
+    span {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      color: $black;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__tag {
+    text-transform: lowercase;
+  }
+
+  &__points {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $primary;
+  }
+}

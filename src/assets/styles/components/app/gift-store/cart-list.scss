@@ -1,0 +1,177 @@
+.gift-store-cart-list {
+  background: #fff;
+  border: 1px solid $black10;
+  border-radius: 16px;
+
+  &__item {
+    border: 1px solid transparent;
+    border-bottom: 1px solid $black10;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &--error {
+      border: 1px solid $info;
+      overflow: hidden;
+
+      &:first-child {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+      }
+    }
+
+    &--locked {
+      .gift-store-cart-list__content {
+        justify-content: left;
+      }
+
+      .gift-store-cart-list__gift {
+        margin-left: 40px;
+
+        @media (min-width: 1366px) {
+          margin-left: 50px;
+        }
+
+        @media (min-width: 1600px) {
+          margin-left: 75px;
+        }
+
+        @media (min-width: 1920px) {
+          margin-left: 109px;
+        }
+      }
+
+      .gift-store-cart-list__remove {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 30px 22px 24px;
+  }
+
+  &__attention {
+    background: $info;
+    color: $black;
+    padding: 20px 0 20px 55px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    position: relative;
+    left: -2px;
+    top: 1px;
+    width: calc(100% + 4px);
+
+    & > svg {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      left: 24px;
+      top: 19px;
+
+      mask {
+        fill: #fff;
+      }
+
+      .path-gift {
+        fill: $black;
+      }
+    }
+  }
+
+  &__image {
+    i {
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
+      background: no-repeat center;
+      background-size: cover;
+    }
+  }
+
+  &__gift {
+    width:  33.153%;
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $primary;
+    width: 17.044%;
+  }
+
+  &__remove {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+
+    svg path {
+      fill: $black;
+    }
+
+    &:hover {
+      svg path {
+        fill: $primary;
+      }
+    }
+  }
+
+  &__exit {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+
+    svg path {
+      transition-duration: .15s;
+      fill: $black;
+    }
+
+    &:hover {
+      svg path {
+        fill: $primary;
+        transition-duration: .15s;
+      }
+    }
+  }
+}
+
+.gift-store-cart-list-gift {
+
+  .app-tag--error {
+    text-transform: lowercase;
+  }
+
+  &__tags {
+    margin-bottom: 8px;
+
+    span {
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $black;
+
+    @include readMore(28, 2);
+  }
+}

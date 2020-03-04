@@ -1,0 +1,43 @@
+.app-tag {
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  height: 20px;
+  letter-spacing: 0.01em;
+  color: $black;
+  padding: 0 8px;
+  background: #fff;
+  border: 1px solid $black10;
+  border-radius: 10px;
+
+  &--orange {
+    background: $info;
+    border: 1px solid $white30;
+    color: $white85;
+  }
+
+  &--success {
+    background: $success;
+    border: 1px solid $white30;
+    color: $black;
+  }
+
+  &--primary {
+    background: $primary;
+    border: 1px solid $white30;
+    color: $black;
+  }
+
+  &--gray {
+    background: $background-gray;
+    border: 1px solid $white30;
+  }
+
+  &--error {
+    background: $error;
+    color: $black;
+    border: 1px solid $white30;
+  }
+}

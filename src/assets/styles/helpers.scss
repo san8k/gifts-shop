@@ -1,0 +1,204 @@
+img {
+  border: 0;
+}
+
+.is-marginless {
+  margin: 0 !important;
+}
+
+.is-paddingless {
+  padding: 0 !important;
+}
+
+.is-radiusless {
+  border-radius: 0 !important;
+}
+
+.is-shadowless {
+  box-shadow: none !important;
+}
+
+.section-background:nth-of-type(odd) {
+    background: #fff;
+}
+
+// Чтобы ссылка была поверх всего родителя
+@mixin blockLink {
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+}
+
+// Свойства для всех ссылок
+@mixin actionLink {
+  cursor: pointer;
+  user-select: none;
+}
+
+// сколько строк с троеточием на конце
+@mixin readMore($lineHeight, $rows) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: $lineHeight * $rows + 0px;
+  display: -webkit-inline-box;
+  -webkit-line-clamp: $rows;
+  -webkit-box-orient: vertical;
+}
+
+// Отключает подсветку тапа
+@mixin disableTap {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@mixin backgroundOpacity($color) {
+  background: $color;
+}
+
+// Уберем глаз и очистить из полей в IE
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}
+
+// А также всякие парольные иконки и т.д.
+input::-webkit-caps-lock-indicator {
+  display: none;
+}
+
+input::-webkit-credentials-auto-fill-button {
+  display: none;
+}
+
+::-moz-focus-outer {
+  border: 0;
+}
+
+/**
+ * ЭТО ПОЛЗУНОК ДЛЯ ПЛЕЕРА
+ */
+@mixin inputTypeRange ($background) {
+  input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+
+    z-index: 35;
+    background: transparent;
+  }
+
+  input[type=range]:focus {
+    outline: none;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+    background: $background;
+    border-radius: 25px;
+    border: 0 solid #000101;
+    z-index: 14;
+    position: relative;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    border: 0 solid #000000;
+    z-index: 15;
+    position: relative;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: 0;
+
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(31, 55, 73, 1);
+  }
+
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $background;
+  }
+
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0 0 0 transparent, 0 0 0 transparent;
+    border-radius: 25px;
+    border: 0 solid transparent;
+    z-index: 14;
+    position: relative;
+  }
+
+  input[type=range]::-moz-range-thumb {
+    border: 0 solid #000000;
+    z-index: 15;
+    position: relative;
+    cursor: pointer;
+
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(31, 55, 73, 1);
+  }
+
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 12.8px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    z-index: 88;
+    position: relative;
+  }
+
+  input[type=range]::-ms-fill-lower {
+    background: $background;
+    border: 0 #000101 solid;
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+  }
+
+  input[type=range]::-ms-fill-upper {
+    background: $background;
+    border: 0 solid #000101;
+    box-shadow: 0 0 0 #000000, 0 0 0 #0d0d0d;
+  }
+
+  input[type=range]::-ms-thumb {
+    border: 0 solid #000000;
+    position: absolute;
+    cursor: pointer;
+    top: -20px;
+
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(31, 55, 73, 1);
+  }
+
+  input[type=range]:focus::-ms-fill-lower {
+    background: $background;
+  }
+
+  input[type=range]:focus::-ms-fill-upper {
+    background: $background;
+  }
+
+  input[type=range]::-ms-tooltip {
+    display: none;
+  }
+}

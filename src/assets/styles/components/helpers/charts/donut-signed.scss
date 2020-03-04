@@ -1,0 +1,54 @@
+.app-charts-donut-signed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__donut {
+    width: 96px;
+  }
+
+  &__explanations {
+    width: calc(100% - 120px);
+
+    &--normal {
+      color: $black
+    }
+
+    &--success {
+      color: $success
+    }
+
+    &--failed {
+      color: $error
+    }
+
+    &--large {
+      font-size: 20px;
+      letter-spacing: 0.01em;
+      font-weight: bold;
+    }
+
+    table {
+      tr {
+        td {
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0.01em;
+          padding-bottom: 8px;
+
+          &:first-child {
+            font-weight: 500;
+            padding-right: 8px;
+            text-align: right;
+          }
+        }
+
+        &:last-child {
+          td {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

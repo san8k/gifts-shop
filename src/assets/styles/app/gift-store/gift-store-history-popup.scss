@@ -1,0 +1,203 @@
+.gift-order-popup-container {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 50px 0;
+}
+
+.gift-order-popup-inner {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 170px);
+}
+
+.gift-order-popup-outer {
+  height: calc(100% - 230px);
+}
+
+.gift-store-history-popup {
+  max-height: 915px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px $black10;
+  padding: 34px 17px 40px 40px;
+  z-index: 1;
+  max-width: 808px;
+  width: 100%;
+  min-height: 440px;
+
+  .svg-close path {
+    fill: $black;
+    transition-duration: .15s;
+
+    &:hover {
+      fill: $primary;
+      transition-duration: .15s;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 34px;
+    letter-spacing: 0.02em;
+    color: $black;
+  }
+
+  &__tag {
+    margin-top: 9px;
+    text-transform: lowercase;
+    padding-bottom: 32px;
+  }
+
+  &__content {
+    //max-height: 515px;
+    min-height: 220px;
+    max-height: calc(100vh - 385px);
+    overflow: auto;
+    padding-right: 20px;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      background: #fff;
+      position: relative;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background:  $black10;
+      border-radius: 50px;
+    }
+  }
+
+  &__comment {
+    margin-bottom: 28px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: $black40;
+    background: $background-gray;
+    border-radius: 4px;
+    padding: 24px 18px 24px 62px;
+    position: relative;
+    word-break: break-all;
+
+    &--icon {
+      position: absolute;
+      left: 24px;
+      top: 23px;
+
+      svg {
+        mask {
+          fill: #fff;
+        }
+
+        .svg-history {
+          fill: $black40;
+        }
+      }
+    }
+  }
+
+  &__list {
+    border: 1px solid $black10;
+    border-radius: 16px;
+  }
+
+  &__item {
+    padding: 26px 0 22px 24px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $black10;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__image {
+    div {
+      width: 100px;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 16px;
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $black;
+    margin-left: 68px;
+    width: 42%;
+
+    @include readMore(28, 2);
+  }
+
+  &__amount {
+    font-size: 16px;
+    line-height: 24px;
+    color: $black;
+    width: 12%;
+    text-align: center;
+  }
+
+  &__points {
+    margin-left: 13px;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    color: $primary;
+  }
+
+  &__btn {
+    margin-top: 40px;
+    text-align: right;
+    padding-right: 30px;
+
+    a {
+      width: 248px;
+    }
+  }
+}
+
+.gift-store-history-popup-total {
+  display: flex;
+  margin-top: 30px;
+  justify-content: flex-end;
+
+  &__text {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $black;
+  }
+
+  &__count {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $black;
+    margin-left: 45px;
+  }
+
+  &__points {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $primary;
+    margin-left: 40px;
+    width: 165px;
+  }
+}

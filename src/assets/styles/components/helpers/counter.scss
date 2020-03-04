@@ -1,0 +1,57 @@
+.app-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__button {
+    @include actionLink;
+
+    display: flex;
+    align-items: center;
+
+    width: 24px;
+    height: 24px;
+
+    svg {
+      rect {
+        fill: $black20;
+      }
+    }
+
+    &--active {
+      svg {
+        rect {
+          fill: $trueBlack;
+        }
+      }
+
+      &:hover {
+        svg {
+          rect {
+            fill: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  &__input {
+    input {
+      display: block;
+      width: 54px;
+      height: 36px;
+
+      line-height: 36px;
+      font-size: 16px;
+      color: $trueBlack;
+
+      border: 0;
+      text-align: center;
+      cursor: default;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.search-not-found {
+    text-align: center;
+    padding-top: 162px;
+
+    &__image {
+      margin-bottom: 35px;
+      pointer-events: none;
+    }
+
+    &__title {
+      line-height: 30px;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+      color: $black;
+      margin-bottom: 14px;
+    }
+
+    &__subtitle {
+      line-height: 22px;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: $black;
+    }
+  }

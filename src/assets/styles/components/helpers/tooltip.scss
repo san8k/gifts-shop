@@ -1,0 +1,57 @@
+.app-tooltip {
+  position: relative;
+  display: inline-block;
+
+  @include disableTap;
+  user-select: none;
+
+  height: inherit;
+
+  &__outer {
+    display: inline-block;
+    height: inherit;
+  }
+
+  &__tooltip {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 100%;
+    margin-top: -12px;
+    margin-left: 10px;
+
+    cursor: auto;
+
+    visibility: hidden;
+
+    border-radius: 4px;
+    background: $black;
+    padding: 0 8px;
+
+    white-space: nowrap;
+
+    line-height: 24px;
+
+    font-size: 12px;
+    display: flex;
+    letter-spacing: 0.04em;
+    color: $black;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent $black transparent transparent;
+    }
+  }
+
+  &:hover {
+    .app-tooltip__tooltip {
+      visibility: visible;
+    }
+  }
+}

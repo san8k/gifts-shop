@@ -1,0 +1,105 @@
+.gift-card {
+  position: relative;
+  padding: 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px $black10;
+  background: #fff;
+  height: 320px;
+
+  @media (min-width: 1366px) {
+    height: 344px;
+  }
+
+  @media (min-width: 1600px) {
+    height: 408px;
+  }
+
+  @media (min-width: 1920px) {
+    height: 504px;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 56.4%;
+    background: $background-lightgray no-repeat center;
+    background-size: cover;
+
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      pointer-events: none;
+      width: 40%;
+    }
+  }
+
+  &__labels {
+    position: absolute;
+    bottom: 13px;
+    left: 24px;
+
+    span {
+      margin-right: 8px;
+
+      &:first-child {
+        text-transform: uppercase;
+      }
+
+      &:not(:first-child) {
+        text-transform: lowercase;
+      }
+    }
+  }
+
+  &__title-block {
+    padding: 0 24px;
+    margin: 21px 0 0;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $black;
+
+    @include readMore(28px, 2);
+
+    @media (min-width: 1600px) {
+      font-size: 22px;
+      line-height: 32px;
+
+      @include readMore(32px, 3);
+    }
+  }
+
+  &__info-block {
+    position: absolute;
+    bottom: 21px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    align-items: flex-end;
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: $primary;
+  }
+
+  &__count {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0.04em;
+    color: $black40;
+    text-transform: lowercase;
+  }
+}

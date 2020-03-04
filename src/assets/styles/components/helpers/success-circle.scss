@@ -1,0 +1,33 @@
+.app-success-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+
+  /**
+  ВНИМАНИЕ!
+
+  Не стоит задавать здесь или в вызове компоненты top, right, bottom или left
+  Если вы хотите разместить статус в другом месте, пишите в стилях конкретного блока что-то вроде:
+
+    .course {
+      .app-success-circle {
+        top: 5px;
+        left: -32px;
+      }
+    }
+   */
+
+  width: 24px;
+  height: 24px;
+
+  background: $success;
+  border-radius: 50%;
+
+  svg {
+    path {
+      fill: $black;
+    }
+  }
+}

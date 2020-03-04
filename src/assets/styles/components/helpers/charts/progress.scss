@@ -1,0 +1,26 @@
+.app-progress {
+  position: relative;
+  width: 96px;
+  height: 4px;
+
+  &__bg {
+    width: 100%;
+    height: inherit;
+    background: $background-gray;
+    border-radius: 4px;
+    z-index: 1;
+  }
+
+  &__filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    width: 100%;
+    height: inherit;
+    background: $primary;
+    border-radius: 4px;
+    transition: width .25s cubic-bezier(.0, .0, .2, 1);
+  }
+}

@@ -1,0 +1,159 @@
+.app-smart-toggle-list {
+  margin-top: 34px;
+}
+
+.app-smart-toggle-list-header {
+  margin-bottom: 16px;
+
+  &__title {
+    margin-bottom: 8px;
+
+    span {
+      display: inline-block;
+
+      @include actionLink;
+
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: 0.02em;
+      position: relative;
+
+      i {
+        position: absolute;
+        top: 17px;
+        right: -40px;
+        margin-top: -12px;
+
+        display: flex;
+        width: 24px;
+        height: 24px;
+
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          path {
+            fill: $black;
+          }
+        }
+      }
+    }
+
+    &--normal {
+      span {
+        color: $black;
+      }
+    }
+
+    &--success {
+      span {
+        color: $success;
+      }
+    }
+
+    &--failed {
+      span {
+        color: $error;
+      }
+    }
+
+    &--showed {
+      span {
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    &--hidden {
+      span {
+        cursor: text;
+
+        i {
+          display: none;
+        }
+      }
+    }
+
+    &--opened {
+      i {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.01em;
+    color: $black40;
+  }
+}
+
+.app-smart-toggle-list-body {
+  border: 1px solid $black10;
+  border-radius: 16px;
+}
+
+.app-smart-toggle-item {
+  position: relative;
+  background: #fff;
+  padding: 16px 24px;
+  border-bottom: 1px solid $black10;
+
+  &:first-child {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  &__name {
+    margin-bottom: 16px;
+
+    a {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.03em;
+      color: $black;
+      text-decoration: none;
+      padding-right: 6px;
+
+      display: inline-block;
+      max-width: calc(100% - 72px);
+
+      &:hover {
+        color: $primary;
+      }
+
+      @include blockLink;
+    }
+  }
+
+  &__last-active {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: $black;
+  }
+
+  &__avatar {
+    position: absolute;
+    top: 50%;
+    margin-top: -28px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+
+    img {
+      width: 56px;
+      max-width: 56px;
+      border-radius: 50%;
+    }
+  }
+}

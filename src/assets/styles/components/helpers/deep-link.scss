@@ -1,0 +1,8 @@
+.app-deep-link {
+  color: $link !important;
+  text-decoration: underline !important;
+
+  &:hover {
+    color: $primary !important;
+  }
+}

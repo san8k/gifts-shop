@@ -1,0 +1,96 @@
+.file-upload {
+  position: relative;
+  cursor: default;
+
+  &:hover {
+    .app-text {
+      .app-text__input {
+          border-color: transparent;
+          box-shadow: 0px 4px 16px $black10;
+      }
+    }
+
+    .file-upload__icon--success {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .file-upload__icon--close {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  input[type=file] {
+    // такие стили нужны чтобы программный фокус срабатывал
+    display: block;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+  }
+
+  &__actions {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    transition: opacity .25s cubic-bezier(.0, .0, .2, 1);
+
+    &--trigger {
+      border-radius: 4px;
+      background: $primary;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../images/plus-white.svg') no-repeat 50% 50%;
+        transition: transform .25s cubic-bezier(.0, .0, .2, 1);
+      }
+
+      &:hover {
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &--progress {
+      //background: url('../images/progress-circle.svg') no-repeat 50% 50%;
+      //animation: progress-circle-rotate 1s infinite linear;
+
+
+      //@keyframes progress-circle-rotate {
+      //  0% {
+      //    transform: rotate(0deg);
+      //  }
+      //  100% {
+      //    transform: rotate(360deg);
+      //  }
+      //}
+    }
+
+    &--success {
+      background: url('../images/ok.svg') no-repeat 50% 50%;
+    }
+
+    &--close {
+      opacity: 0;
+      background: url('../images/cross.svg') no-repeat 50% 50%;
+      pointer-events: none;
+    }
+  }
+}

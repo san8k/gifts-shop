@@ -1,0 +1,54 @@
+.app-like {
+  width: max-content;
+  color: $black;
+  cursor: pointer;
+
+  svg {
+    margin-right: 12px;
+    transform: translate3d(0, 5px, 0);
+
+    path {
+      stroke: $black;
+    }
+  }
+
+  &--is-large {
+    svg {
+      margin-right: 0;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &:hover {
+    svg {
+      path {
+        stroke: #F86767;
+        fill: #F86767;
+      }
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+
+  &.is-liked {
+    color: #F86767;
+
+    svg {
+      path {
+        stroke: #F86767;
+        fill: #F86767;
+      }
+    }
+
+    &:hover {
+      svg {
+        path {
+          stroke: #F86767;
+          fill: transparent;
+        }
+      }
+    }
+  }
+}
