@@ -21,4 +21,11 @@ export default {
      */
     return axios.get('/user-points.json');
   },
+
+  getSettings() {
+    /**
+     * Вернет настройки
+     */
+    return axios.get('/settings.json');
+  },
 };

@@ -49,8 +49,8 @@ export default {
     // текущая страница
     currentPage: 1,
 
-    // сколько всего страниц с подарками
-    pagesCount: null,
+    // настройки отображения
+    settings: null,
   },
 
   getters: {
@@ -61,7 +61,7 @@ export default {
     gifts: state => state.gifts,
     terms: state => state.terms,
     currentPage: state => state.currentPage,
-    pagesCount: state => state.pagesCount,
+    settings: state => state.settings,
   },
 
   actions: {
@@ -90,7 +90,8 @@ export default {
           if (!payload) {
             return;
           }
-          commit('changeGifts', payload.data);
+          commit('changeGifts', payload.data.gifts);
+          commit('changeSettings', payload.data.settings);
         });
     },
 
@@ -127,8 +128,8 @@ export default {
       state.currentPage = payload;
     },
 
-    changePagesCount(state, payload) {
-      state.pagesCount = payload;
+    changeSettings(state, payload) {
+      state.settings = payload;
     },
   },
 };

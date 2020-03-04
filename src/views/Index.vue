@@ -38,7 +38,7 @@
           </template>
         </template>
 
-        <div v-if="pagesCount > 1" class="gift-store__pagination-wrapper">
+        <div v-if="pagesCount && pagesCount > 1" class="gift-store__pagination-wrapper">
           <pagination-component
             :pagesCount="pagesCount"
             @changePage="changePage"
@@ -72,7 +72,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import filter from 'lodash/filter';
 import sortBy from 'lodash/sortBy';
 import ClickOutside from 'vue-click-outside';
 import noMaterial from '../components/helpers/no-material.vue';
@@ -96,9 +95,6 @@ export default {
     return {
       isPageLoading: true,
 
-      // товаров на страницу
-      giftsPerPage: 2,
-
       // товары на странице
       giftsOnPage: null,
 
@@ -110,6 +106,9 @@ export default {
 
       // объект открытого подарка
       openedGift: null,
+
+      // всего страниц
+      pagesCount: null,
     };
   },
 
@@ -125,7 +124,8 @@ export default {
       'terms',
 
       'currentPage',
-      'pagesCount',
+
+      'settings',
     ]),
 
     sortedGifts() {
@@ -156,10 +156,6 @@ export default {
     },
   },
 
-  beforeDestroy() {
-    document.body.style.overflow = 'visible';
-  },
-
   created() {
     this.$store.dispatch('giftStore/getGifts')
       .then(() => {
@@ -168,18 +164,9 @@ export default {
       });
 
     this.$store.dispatch('giftStore/getPoints');
-    this.$store.dispatch('giftStore/getTerms');
   },
 
   methods: {
-    loadGifts() {
-      this.giftsOnPage = filter(this.gifts.products, product => product.availableCount > 0
-      || product.isUnlimited);
-      this.pagesCount = this.gifts.meta.pages_count;
-      this.totalCount = this.gifts.meta.total_count;
-      this.isPageLoading = false;
-    },
-
     loadTerms() {
       if (!this.canIUseTerms) {
         this.$store.dispatch('giftStore/getTerms');
@@ -188,7 +175,8 @@ export default {
 
     // записываем подарки для выбранной страницы
     setGiftsOnPage() {
-      this.giftsOnPage = this.gifts.slice((this.currentPage - 1) * this.giftsPerPage, (this.currentPage - 1) * this.giftsPerPage + this.giftsPerPage);
+      this.giftsOnPage = this.gifts.slice((this.currentPage - 1) * this.settings.giftsPerPage,
+        (this.currentPage - 1) * this.settings.giftsPerPage + this.settings.giftsPerPage);
     },
 
     changePage(page) {
@@ -220,7 +208,7 @@ export default {
 
   watch: {
     gifts() {
-      this.$store.commit('giftStore/changePagesCount', Math.ceil(this.gifts.length / this.giftsPerPage)); // записываем общее кол-во страниц с подарками
+      this.pagesCount = Math.ceil(this.gifts.length / this.settings.giftsPerPage);
       this.setGiftsOnPage();
     },
   },
