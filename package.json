@@ -13,7 +13,7 @@
     "bulma": "^0.8.0",
     "cache-loader": "^4.1.0",
     "core-js": "^3.4.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "vue": "^2.6.10",
     "vue-click-outside": "^1.0.7",
     "vue-router": "^3.1.3",
